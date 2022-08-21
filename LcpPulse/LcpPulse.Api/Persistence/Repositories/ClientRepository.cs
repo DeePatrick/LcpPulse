@@ -1,5 +1,4 @@
 ﻿using LcpPulse.Core.Repositories;
-using LcpPulse.Data;
 using Microsoft.EntityFrameworkCore;
 using Client = LcpPulse.Core.Models.Client;
 
@@ -7,9 +6,9 @@ namespace LcpPulse.Persistence.Repositories
 {
     public class ClientRepository: IClientRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public ClientRepository(ApplicationDbContext context)
+        public ClientRepository(IApplicationDbContext context)
         {
             _context = context;
         }

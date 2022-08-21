@@ -1,6 +1,5 @@
 using LcpPulse.Core;
 using LcpPulse.Core.Repositories;
-using LcpPulse.Data;
 using LcpPulse.Persistence;
 using LcpPulse.Persistence.Repositories;
 using Microsoft.AspNetCore.Identity;
@@ -16,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 

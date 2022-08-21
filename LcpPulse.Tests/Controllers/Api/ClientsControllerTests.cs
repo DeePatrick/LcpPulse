@@ -5,7 +5,6 @@ using LcpPulse.Core.Models;
 using LcpPulse.Core.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using NSubstitute;
 
 namespace LcpPulse.Tests.Controllers.Api
 {
@@ -13,7 +12,7 @@ namespace LcpPulse.Tests.Controllers.Api
     public class ClientsControllerTests
     {
         private readonly ClientsController _controller;
-        private Mock<IClientRepository> _mockRepository;
+        private readonly Mock<IClientRepository> _mockRepository;
 
         public ClientsControllerTests()
         {
@@ -37,7 +36,7 @@ namespace LcpPulse.Tests.Controllers.Api
         }
 
         [Fact]
-        public async Task DeleteClient_SuccessfullyRemovedClient_ShouldReturnOK()
+        public async Task DeleteClient_ValidRequest_ShouldReturnOK()
         {
             //Arrange
             var client = new Client()
